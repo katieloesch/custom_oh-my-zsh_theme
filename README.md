@@ -7,9 +7,9 @@ Overview
  -->
 
 <div align="center">
-  <img src="./assets/screenshot_1.png" width=500/>
+  <img src="./assets/screenshot_git_log_oneline.png" width=500/>
   <br><br>
-  <img src="./assets/screenshot_2.png" width=500/>
+  <img src="./assets/screenshot_git_status.png" width=500/>
 </div>
 
 ## Overview
@@ -49,19 +49,15 @@ A sleek and minimalist **Oh My Zsh** theme for an enhanced terminal experience.
   - Windows CMD/PowerShell – Zsh is not natively supported
     - For the best experience on Windows, use WSL with Ubuntu and Windows Terminal
 
-<br>
-
 ---
-
-<!-- ## **1. Verify Oh My Zsh and Zsh Installation** -->
 
 ### **Check if Oh My Zsh is Installed**
 
-In your terminal, run:
+- In your terminal, run:
 
-```sh
-echo $ZSH
-```
+  ```sh
+  echo $ZSH
+  ```
 
 - If installed, it will return a path like:
   ```
@@ -69,13 +65,15 @@ echo $ZSH
   ```
 - If empty, **Oh My Zsh is not installed**.
 
+---
+
 ### **Check if Zsh is the Default Shell**
 
-In your terminal, run:
+- In your terminal, run:
 
-```sh
-echo $SHELL
-```
+  ```sh
+  echo $SHELL
+  ```
 
 - If it returns `/bin/zsh`, Zsh is already set as the default shell.
 - If it returns `/bin/bash`, switch to Zsh with:
@@ -84,36 +82,40 @@ echo $SHELL
   ```
 - Then restart your terminal.
 
+---
+
 ### **Verify Oh My Zsh Configuration**
 
-Check if the `~/.zshrc` file exists by running:
+- Check if the `~/.zshrc` file exists by running:
 
-```sh
-ls -la ~/.zshrc
-```
+  ```sh
+  ls -la ~/.zshrc
+  ```
 
 - If the file exists, **Oh My Zsh is installed**.
 - If not, proceed with installation.
 
+---
+
 ### **Install Oh My Zsh (If Needed)**
 
-If Oh My Zsh is not installed, install it with the following command:
+- If Oh My Zsh is not installed, install it with the following command:
 
-```sh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
+  ```sh
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  ```
 
-Or use `wget`:
+- Or use `wget`:
 
-```sh
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-```
+  ```sh
+  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  ```
 
-After installation, restart your terminal or run:
+- After installation, restart your terminal or run:
 
-```sh
-source ~/.zshrc
-```
+  ```sh
+  source ~/.zshrc
+  ```
 
 ## <a name="installation"></a> 3. Installing the Custom Oh My Zsh Theme
 
@@ -123,65 +125,65 @@ source ~/.zshrc
 cd ~/.oh-my-zsh/custom/themes
 ```
 
-If the directory does not exist, create it:
+- If the directory does not exist, create it:
 
-```sh
-mkdir -p ~/.oh-my-zsh/custom/themes
-```
+  ```sh
+  mkdir -p ~/.oh-my-zsh/custom/themes
+  ```
 
 ### **Step 2: Download the Theme**
 
-#### **Option 1: Clone the Repository**
+- #### **Option 1: Clone the Repository**
 
-```sh
-git clone https://github.com/katieloesch/custom_oh-my-zsh_theme
-```
+  ```sh
+  git clone https://github.com/katieloesch/custom_oh-my-zsh_theme
+  ```
 
-#### **Option 2: Download the Theme File Directly**
+- #### **Option 2: Download the Theme File Directly**
 
-Using `curl`:
+  - Using `curl`:
 
-```sh
-curl -o ~/.oh-my-zsh/custom/themes/custom_zsh_theme.zsh-theme https://raw.githubusercontent.com/katieloesch/custom_oh-my-zsh_theme/main/custom_zsh_theme.zsh-theme
-```
+    ```sh
+    curl -o ~/.oh-my-zsh/custom/themes/custom_zsh_theme.zsh-theme https://raw.githubusercontent.com/katieloesch/custom_oh-my-zsh_theme/main/custom_zsh_theme.zsh-theme
+    ```
 
-Using `wget`:
+  - Using `wget`:
 
-```sh
-wget -O ~/.oh-my-zsh/custom/themes/custom_zsh_theme.zsh-theme https://raw.githubusercontent.com/katieloesch/custom_oh-my-zsh_theme/main/custom_zsh_theme.zsh-theme
-```
+    ```sh
+    wget -O ~/.oh-my-zsh/custom/themes/custom_zsh_theme.zsh-theme https://raw.githubusercontent.com/katieloesch/custom_oh-my-zsh_theme/main/custom_zsh_theme.zsh-theme
+    ```
 
 ### **Step 3: Verify the Theme File**
 
-Ensure the file is in the correct directory:
+- Ensure the file is in the correct directory:
 
-```sh
-ls ~/.oh-my-zsh/custom/themes/
-```
+  ```sh
+  ls ~/.oh-my-zsh/custom/themes/
+  ```
 
-You should see `custom_zsh_theme.zsh-theme` in the list.
+- You should see `custom_zsh_theme.zsh-theme` in the list.
 
 ### **Step 4: Set the Theme in `.zshrc`**
 
-Open the configuration file:
+- Open the configuration file:
 
-```sh
-open ~/.zshrc
-```
+  ```sh
+  open ~/.zshrc
+  ```
 
-Find the line:
+- Find the line:
 
-```sh
-ZSH_THEME="robbyrussell"
-```
+  ```sh
+  ZSH_THEME="robbyrussell"
+  ```
 
-Change it to:
+- Change it to:
 
-```sh
-ZSH_THEME="custom_zsh_theme"
-```
+  ```sh
+  ZSH_THEME="custom_zsh_theme"
+  ```
 
-Save and exit close the file.
+- Save and exit close the file.
 
 ### **Step 5: Apply Changes**
 
@@ -189,7 +191,7 @@ Save and exit close the file.
 source ~/.zshrc
 ```
 
-## **Troubleshooting**
+### **Troubleshooting**
 
 - If the theme doesn’t apply, ensure the `.zsh-theme` file is in the correct location.
 - Restart your terminal if `source ~/.zshrc` does not work.
