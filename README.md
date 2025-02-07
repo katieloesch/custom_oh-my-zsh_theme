@@ -21,7 +21,10 @@ Overview
 5. [Installation - Linux](#installation-linux)
 6. [Prerequisites - WSL](#prerequisites-wsl)
 7. [Installation - WSL](#installation-wsl)
-8. [Development Tools & Resources](#technologies)
+8. [Customising ANSI Colors](#ansi)
+9. [Customising fonts](#fonts)
+10. [Plugins](#plugins)
+11. [Development Tools & Resources](#technologies)
 
 ---
 
@@ -32,11 +35,11 @@ A sleek and minimalist **Oh My Zsh** theme designed for an enhanced terminal exp
 Like Andromeda Mariana, this custom theme features a dark background, reducing overall screen brightness to minimize eye strain—especially in low-light environments. Its soft, muted color palette helps prevent visual fatigue by avoiding harsh contrasts, creating a comfortable and aesthetically pleasing workspace.
 
 <div align="center">
-  <img src="./assets/screenshot_npm_start.png" width=500/>
-  <br><br>
-  <img src="./assets/screenshot_git_status.png" width=500/>
-  <br><br>
   <img src="./assets/screenshot_vite.png" width=500/>
+  <br><br>
+  <img src="./assets/screenshot_git_log.png" width=500/>
+  <br><br>
+  <img src="./assets/screenshot_npm_start.png" width=500/>
 </div>
 
 ## <a name="prerequisites-mac"></a> 2. Prerequisites - MacOS
@@ -207,12 +210,6 @@ source ~/.zshrc
 
 - If the theme doesn’t apply, ensure the `.zsh-theme` file is in the correct location.
 - Restart your terminal if `source ~/.zshrc` does not work.
-
----
-
----
-
----
 
 ## <a name="prerequisites-linux"></a> 4. Prerequisites - Linux
 
@@ -487,7 +484,274 @@ source ~/.zshrc
 - Install MesloLGS NF (Nerd Font) for proper icon rendering.
 - Ensure Windows Terminal is used for full color support.
 
-## <a name="technologies"></a> 8. Development Tools & Resources
+## <a name="ansi"></a> 8. Customising ANSI Colors
+
+Changing ANSI colors in your terminal allows you to customize its appearance for better readability and aesthetics.
+
+## **Customising ANSI Colors for macOS**
+
+- **Option 1: Using Terminal Preferences (for Built-in macOS Terminal)**
+
+  1. Open Terminal (`Command + Space` → type `Terminal` → press `Enter`).
+  2. Click on **Terminal** in the menu bar and select **Settings** (or **Preferences** in older versions).
+  3. Go to the **Profiles** tab.
+  4. Choose a profile to edit or create a new one by clicking the **"+"** button.
+  5. Click the **"Text"** tab and select **"Change..."** next to "ANSI Colors".
+  6. Adjust the colors as needed by clicking each square and choosing a new color.
+  7. Click **Save**. You can also set the profile as **default**.
+
+- **Option 2: Using Zsh and `.zshrc` (for iTerm2 or Alacritty)**
+  If you're using **iTerm2**, you can set ANSI colors via the preferences, or by modifying the `.zshrc` file:
+  1. Open the **iTerm2** application.
+  2. Go to **Preferences** → **Profiles** → **Colors**.
+  3. Adjust ANSI colors by clicking the color boxes.
+  4. Alternatively, edit your **~/.zshrc** file to add custom ANSI colors:
+  ```sh
+   export LS_COLORS='di=1;34:ln=36:so=32:pi=33:ex=1;32:bd=34;46:cd=34;43'
+  ```
+  5. Save and apply changes with:
+  ```sh
+  source ~/.zshrc
+  ```
+
+## **Customising ANSI Colors for Linux (Ubuntu, Fedora, Arch, etc.)**
+
+- **Method 1: Editing `.bashrc` or `.zshrc` for Persistent Changes**
+  1. Open a terminal.
+  2. Edit the shell configuration file:
+     - **Bash:** `nano ~/.bashrc`
+     - **Zsh:** `nano ~/.zshrc`
+  3. Add custom ANSI color settings. Example for **LS_COLORS**:
+  ```sh
+  export LS_COLORS='di=1;34:ln=36:so=32:pi=33:ex=1;32:bd=34;46:cd=34;43'
+  ```
+  4. Save the file (`Ctrl + X`, then `Y`, then `Enter`).
+  5. Apply the changes:
+  ```sh
+  source ~/.bashrc   # or source ~/.zshrc
+  ```
+- **Method 2: Using `dircolors`**
+  1. Generate a new **LS_COLORS** scheme:
+  ```sh
+  dircolors -p > ~/.dircolors
+  ```
+  2. Edit the file:
+  ```sh
+  nano ~/.dircolors
+  ```
+  3. Modify color settings (e.g., change directories to bold blue):
+  ```
+  DIR 01;34
+  ```
+  4. Save and apply:
+  ```sh
+  eval "$(dircolors -b ~/.dircolors)"
+  ```
+
+## **Customising ANSI Colors for Windows Subsystem for Linux (WSL)**
+
+- **Method 1: Changing Colors in Windows Terminal (GUI)**
+
+  1. Open **Windows Terminal** (PowerShell, WSL, or CMD).
+  2. Click the **dropdown menu** (⌄) and select **Settings**.
+  3. Choose your WSL profile (e.g., "Ubuntu").
+  4. Under the **Appearance** tab, scroll to **Color Scheme** and click **Edit**.
+  5. Modify ANSI color values and save the changes.
+
+- **Method 2: Editing `.bashrc` or `.zshrc` for WSL**
+  1. Open WSL (`Ctrl + Alt + T` or from Windows Terminal).
+  2. Edit the shell configuration file:
+  ```sh
+  nano ~/.bashrc   # or ~/.zshrc
+  ```
+  3. Add custom ANSI colors:
+  ```sh
+  export LS_COLORS='di=1;34:ln=36:so=32:pi=33:ex=1;32:bd=34;46:cd=34;43'
+  ```
+  4. Save and reload:
+  ```sh
+  source ~/.bashrc   # or source ~/.zshrc
+  ```
+
+## **Testing Your ANSI Colors**
+
+- After applying changes, test your ANSI colors with:
+  ```sh
+  ls --color=auto
+  echo -e "\e[31mRed Text\e[0m"
+  ```
+
+## <a name="fonts"></a> 9. Customising fonts
+
+Changing the font in your terminal improves readability and aesthetics, especially for coding and command-line work.
+
+## **Change or Add Fonts in Terminal on macOS**
+
+- **Method 1: Change Font in Built-in macOS Terminal**
+  1. Open **Terminal** (`Command + Space` → type `Terminal` → press `Enter`).
+  2. Click **Terminal** in the menu bar and select **Settings** (or **Preferences**).
+  3. Navigate to the **Profiles** tab.
+  4. Choose the profile you want to modify.
+  5. Click the **"Text"** tab.
+  6. Under **Font**, click **Change** and select a font from the list.
+  7. Adjust size and anti-aliasing settings if needed.
+  8. Click **Save** to apply the changes.
+- **Method 2: Change Font in iTerm2**
+  1. Open **iTerm2**.
+  2. Click **iTerm2 → Preferences**.
+  3. Select the **Profiles** tab.
+  4. Under the **Text** tab, locate **Font**.
+  5. Click **Change Font** and select your preferred font.
+  6. Adjust **size**, **ligatures**, and **anti-aliasing** as needed.
+
+## **Change or Add Fonts in Terminal on Linux (Ubuntu, Fedora, Arch, etc.)**
+
+- **Method 1: Change Font in GNOME Terminal**
+  1. Open **GNOME Terminal**.
+  2. Click the **hamburger menu (☰)** in the top-right corner.
+  3. Select **Preferences**.
+  4. Choose your profile (default or custom).
+  5. Scroll to the **Text Appearance** section.
+  6. Toggle **Custom font** on.
+  7. Click the font name and choose a new font.
+  8. Adjust size and apply the changes.
+- **Method 2: Change Font in Konsole (KDE Terminal)**
+  1. Open **Konsole**.
+  2. Click **Settings → Edit Current Profile**.
+  3. Navigate to the **Appearance** tab.
+  4. Click **Select Font** and pick a new font.
+  5. Click **OK** and apply changes.
+- **Method 3: Change Font in Alacritty (YAML Config)**
+
+  1. Open or create the **Alacritty config file**:
+
+  ```sh
+  nano ~/.config/alacritty/alacritty.yml
+  ```
+
+  2. Locate or add the `font` section:
+
+  ```yaml
+  font:
+    normal:
+      family: 'Fira Code'
+      style: 'Regular'
+    size: 12
+  ```
+
+  3. Save (`Ctrl + X`, then `Y`, then `Enter`) and restart Alacritty.
+
+- **Method 4: Change Font in Kitty (GPU-based Terminal)**
+  1. Open the Kitty config file:
+  ```sh
+  nano ~/.config/kitty/kitty.conf
+  ```
+  2. Add or modify:
+  ```sh
+  font_family FiraCode
+  font_size 12
+  ```
+  3. Save and restart Kitty.
+
+## **Change or Add Fonts in Terminal on Windows Subsystem for Linux (WSL)**
+
+- ### **Method 1: Change Font in Windows Terminal**
+  1. Open **Windows Terminal**.
+  2. Click the **dropdown menu (⌄)** and select **Settings**.
+  3. Choose the profile you want to modify (e.g., "Ubuntu").
+  4. Scroll down to the **Appearance** section.
+  5. Under **Font Face**, select a new font from the dropdown.
+  6. Click **Save** to apply changes.
+- ### **Method 2: Change Font in WSL's Linux Terminal (GNOME/Konsole)**
+  - Follow the Linux instructions for GNOME Terminal, Konsole, or Alacritty, depending on your terminal emulator.
+
+## **Installing New Fonts**
+
+If your preferred font isn't available, you can install it:
+
+### **macOS**
+
+1. Download a `.ttf` or `.otf` font from [Google Fonts](https://fonts.google.com/) or [Nerd Fonts](https://www.nerdfonts.com/).
+2. Double-click the font file and click **Install**.
+3. Restart the terminal and select the new font.
+
+### **Linux**
+
+1. Download the font file (`.ttf` or `.otf`).
+2. Move it to the fonts directory:
+   ```sh
+   mkdir -p ~/.local/share/fonts
+   mv font-file.ttf ~/.local/share/fonts/
+   ```
+3. Refresh the font cache:
+   ```sh
+   fc-cache -fv
+   ```
+4. Restart your terminal.
+
+### **Windows (for WSL)**
+
+1. Download a font from a trusted source.
+2. Double-click the `.ttf` or `.otf` file and click **Install**.
+3. Open Windows Terminal, go to **Settings**, and select the new font.
+
+### **Recommended Fonts for Terminals**
+
+- [Hack](https://github.com/source-foundry/Hack) → Lightweight, clear characters
+- [Fira Code](https://github.com/tonsky/FiraCode) → Monospace, includes ligatures
+- [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono) → Great readability
+- [Ubuntu Mono](https://fonts.google.com/specimen/Ubuntu+Mono) → Default in Ubuntu
+- [Cascadia Code](https://github.com/microsoft/cascadia-code) → Microsoft’s modern monospaced font
+- [Droid Sans Mono](https://www.fontsquirrel.com/fonts/droid-sans-mono) → Minimalist and sharp
+
+## <a name="plugins"></a> 10. Plugins
+
+Another way of customising your terminal is to add plugins. Plugins enhance your terminal experience by adding features such as auto-suggestions, syntax highlighting, and improved navigation.
+
+## **Oh My Zsh Plugins (macOS, Linux, WSL)**
+
+- **Enable Built-in Plugins**
+  1. Open your **Zsh configuration file**:
+  ```sh
+  nano ~/.zshrc
+  ```
+  2. Locate the **plugins** line:
+  ```sh
+  plugins=(git zsh-autosuggestions)
+  ```
+  3. Add any additional plugins you want (space-separated).
+  4. Save and apply changes:
+  ```sh
+  source ~/.zshrc
+  ```
+- **Install New Plugins** (Manually or via Git)
+  - Example: Install `zsh-autosuggestions`
+    1. Clone the plugin repository into the **Oh My Zsh** custom plugins directory:
+    ```sh
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    ```
+    2. Edit `~/.zshrc` and add `zsh-autosuggestions` to the `plugins=()` list:
+    ```sh
+    plugins=(git zsh-autosuggestions)
+    ```
+    3. Reload Zsh:
+    ```sh
+    source ~/.zshrc
+    ```
+
+#### **Other Useful Zsh Plugins**
+
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md) → Colorizes commands as you type
+- [zsh-completions](https://github.com/zsh-users/zsh-completions) → Adds additional autocomplete support
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k) → A highly customizable prompt
+
+#### **Troubleshooting**
+
+- Always restart your shell (`source ~/.zshrc`) after changes.
+- Check installed plugins with `echo $plugins`.
+- If a plugin doesn't work, ensure dependencies like `git` and `curl` are installed.
+
+## <a name="technologies"></a> 11. Development Tools & Resources
 
 ### Development Tools
 
