@@ -9,7 +9,7 @@ Overview
 <div align="center">
   <img src="./assets/screenshot_git_log_oneline.png" width=600/>
   <br><br>
-  <img src="./assets/screenshot_git_status.png" width=600/>
+  <img src="./assets/screenshot_git_switch.png" width=600/>
 </div>
 
 ## Overview
@@ -35,11 +35,11 @@ A sleek and minimalist **Oh My Zsh** theme designed for an enhanced terminal exp
 Like Andromeda Mariana, this custom theme features a dark background, reducing overall screen brightness to minimize eye strain—especially in low-light environments. Its soft, muted color palette helps prevent visual fatigue by avoiding harsh contrasts, creating a comfortable and aesthetically pleasing workspace.
 
 <div align="center">
-  <img src="./assets/screenshot_npm_start.png" width=600/>
+  <img src="./assets/screenshot_vite.png" width=600/>
   <br><br>
   <img src="./assets/screenshot_git_status.png" width=600/>
   <br><br>
-  <img src="./assets/screenshot_vite.png" width=600/>
+  <img src="./assets/screenshot_git_pull.png" width=600/>
 </div>
 
 ## <a name="prerequisites-mac"></a> 2. Prerequisites - MacOS
