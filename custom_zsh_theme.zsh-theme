@@ -1,4 +1,3 @@
-# Katie's custom oh-my-zsh theme
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}❯ "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%} "
