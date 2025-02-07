@@ -1,15 +1,9 @@
 # Custom Minimalist Oh My Zsh Theme
 
-<!--
-Overview
-
-1. Prerequisites
- -->
-
 <div align="center">
-  <img src="./assets/screenshot_git_log_oneline.png" width=500/>
+  <img src="./assets/screenshot_git_log_oneline.png" width=600/>
   <br><br>
-  <img src="./assets/screenshot_git_status.png" width=500/>
+  <img src="./assets/screenshot_git_switch.png" width=600/>
 </div>
 
 ## Overview
@@ -24,7 +18,7 @@ Overview
 8. [Customising ANSI Colors](#ansi)
 9. [Customising fonts](#fonts)
 10. [Plugins](#plugins)
-11. [Development Tools & Resources](#technologies)
+11. [Development Tools & Resources Used](#technologies)
 
 ---
 
@@ -35,11 +29,11 @@ A sleek and minimalist **Oh My Zsh** theme designed for an enhanced terminal exp
 Like Andromeda Mariana, this custom theme features a dark background, reducing overall screen brightness to minimize eye strain—especially in low-light environments. Its soft, muted color palette helps prevent visual fatigue by avoiding harsh contrasts, creating a comfortable and aesthetically pleasing workspace.
 
 <div align="center">
-  <img src="./assets/screenshot_vite.png" width=500/>
+  <img src="./assets/screenshot_vite.png" width=600/>
   <br><br>
-  <img src="./assets/screenshot_git_log.png" width=500/>
+  <img src="./assets/screenshot_git_status.png" width=600/>
   <br><br>
-  <img src="./assets/screenshot_npm_start.png" width=500/>
+  <img src="./assets/screenshot_git_pull.png" width=600/>
 </div>
 
 ## <a name="prerequisites-mac"></a> 2. Prerequisites - MacOS
@@ -751,7 +745,7 @@ Another way of customising your terminal is to add plugins. Plugins enhance your
 - Check installed plugins with `echo $plugins`.
 - If a plugin doesn't work, ensure dependencies like `git` and `curl` are installed.
 
-## <a name="technologies"></a> 11. Development Tools & Resources
+## <a name="technologies"></a> 11. Development Tools & Resources Used
 
 ### Development Tools
 
@@ -780,6 +774,7 @@ Another way of customising your terminal is to add plugins. Plugins enhance your
   - nerdfonts
     - <sub>[github repository](https://github.com/ryanoasis/nerd-fonts)</sub>
     - <sub>[website](https://www.nerdfonts.com/)</sub>
+    - <sub>font used in demo: [Hack](https://github.com/source-foundry/Hack) Nerd Font Mono v3.003 by [Chris Simpkins](https://github.com/chrissimpkins)</sub>
 - **Blogs**
   - <sub>[Customizing your Terminal — Becoming a zsh Power User](https://medium.com/@sammykerridge/customizing-your-terminal-becoming-a-zsh-power-user-d9a8aab5aad0) by [Sam Kerridge](https://medium.com/@sammykerridge)</sub>
   - <sub>[How I customise my Terminal with Oh My Zsh (macOS)](https://dev.to/hannahgooding/how-i-customise-my-terminal-with-oh-my-zsh-macos-427i) by [Hannah Gooding](https://dev.to/hannahgooding)</sub>
