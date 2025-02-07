@@ -18,36 +18,43 @@ Overview
 2. [Prerequisites](#prerequisites)
 3. [Installation](#installation)
 
-<!-- 4. [Technologies Used](#technologies)
-5. [Deliverables](#deliverables)
-6. [Planning & Build Process](#planning)
-7. [Challenges](#challenges)
-8. [Wins](#wins)
-9. [Key Learnings & Takeaways](#takeaways)
-10. [Future Improvements](#future-improvements) -->
-
 ---
 
 ## <a name="description"></a> 1. Description
 
-A sleek and minimalist **Oh My Zsh** theme for an enhanced terminal experience.
+A sleek and minimalist **Oh My Zsh** theme designed for an enhanced terminal experience, inspired by the [Andromeda Mariana](https://marketplace.visualstudio.com/items?itemName=lakshits11.best-themes-redefined) theme for VS Code by [Lakshit Somani](https://github.com/lakshits11/).
+
+Like Andromeda Mariana, this custom theme features a dark background, reducing overall screen brightness to minimize eye strain—especially in low-light environments. Its soft, muted color palette helps prevent visual fatigue by avoiding harsh contrasts, creating a comfortable and aesthetically pleasing workspace.
+
+<div align="center">
+  <img src="./assets/screenshot_npm_start.png" width=500/>
+  <br><br>
+  <img src="./assets/screenshot_git_status.png" width=500/>
+  <br><br>
+  <img src="./assets/screenshot_vite.png" width=500/>
+</div>
 
 ## <a name="prerequisites"></a> 2. Prerequisites
 
-#### To use this theme, you must have:
+### To use this theme, you must have:
 
 - Oh My Zsh installed
 - Zsh set as your default shell
 
-#### Compatibility:
+### Compatibility:
 
-- Supported Platforms&nbsp;&nbsp;✅
-  - macOS & Linux – Fully supported
-  - Windows (WSL) – Supported with WSL + Nerd Fonts for proper icon rendering
-- Not Supported&nbsp;&nbsp;❌
-  - Git Bash – Oh My Zsh does not work in Git Bash
-  - Windows CMD/PowerShell – Zsh is not natively supported
-    - For the best experience on Windows, use WSL with Ubuntu and Windows Terminal
+✅&nbsp;&nbsp;Supported
+
+- macOS & Linux – Fully supported
+- Windows (WSL) – Supported with WSL + Nerd Fonts for proper icon rendering
+
+<br>
+
+❌&nbsp;&nbsp;Not Supported
+
+- Git Bash – Oh My Zsh does not work in Git Bash
+- Windows CMD/PowerShell – Zsh is not natively supported
+  - For the best experience on Windows, use WSL with Ubuntu and Windows Terminal
 
 ---
 
