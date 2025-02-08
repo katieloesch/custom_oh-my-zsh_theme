@@ -19,6 +19,7 @@
 9. [Customising fonts](#fonts)
 10. [Plugins](#plugins)
 11. [Development Tools & Resources Used](#technologies)
+12. [Shell Configuration Code Walkthrough](#code)
 
 ---
 
@@ -783,3 +784,106 @@ Another way of customising your terminal is to add plugins. Plugins enhance your
   - <sub>[How to setup your Mac Terminal to be beautiful](https://www.youtube.com/watch?v=wNQpDWLs4To) by [typecraft](https://www.youtube.com/@typecraft_dev)</sub>
   - <sub>[Upgrade your Terminal NOW | How to install ZSH, oh-my-zsh, themes and plugins](https://www.youtube.com/watch?v=yqKimk-AFY8) by [Helping Ninja](https://www.youtube.com/@helpingninja)</sub>
   - <sub>[Make Your Terminal Look Cooler (OMZ + P10k + Starship)](https://www.youtube.com/watch?v=WXiNkZVmkD4) by [warpdotdev](https://www.youtube.com/@warpdotdev)</sub>
+
+---
+
+## <a name="code"></a> 12. Shell Configuration Code Walkthrough
+
+This configuration for customizing the Zsh shell prompt is a user-friendly and informative terminal prompt that's particularly useful for developers working in Git repositories. It dynamically adjusts the prompt based on the current working directory and Git branch, using custom colors and symbols.
+
+The script customizes the Zsh prompt with the (shortened) current working directory and the active Git branch (if applicable). It also uses colors and symbols to improve readability and aesthetics.
+Finally, it prints an empty line before each command for better output separation.
+
+---
+
+### **Git Prompt Prefix and Suffix Definition**
+
+- The following 2 lines define the appearance of the Git branch prompt:
+
+  ```zsh
+  ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}❯ "
+  ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%} "
+  ```
+
+  - in this case, the prefix is set to a green `❯` symbol
+  - and the suffix is set to a space
+  - `%{$fg[green]%}` is a Zsh escape sequence that sets the text color to green
+
+---
+
+### **path_prompt Function**
+
+```zsh
+function path_prompt {
+  echo $(pwd | sed -e "s,^$HOME,~,")
+}
+```
+
+- This function generates a shortened path for the prompt:
+  - It uses `pwd` to get the current working directory.
+  - `sed` replaces the home directory with a tilde `~` to make the path more compact
+
+---
+
+### **git_custom_prompt Function**
+
+- The following function adds Git branch information to the prompt:
+
+  ```zsh
+  function git_custom_prompt {
+    local cb=$(git_current_branch)
+    if [ -n "$cb" ]; then
+      echo "$ZSH_THEME_GIT_PROMPT_PREFIX${cb}$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    fi
+  }
+  ```
+
+  - `git_current_branch` retrieves the current Git branch name
+  - If a branch exists (`-n "$cb"` checks if the variable is non-empty), the branch name is displayed
+  - The branch name is wrapped with the prefix (in this case `❯`) and suffix (in this case a space)
+
+---
+
+### **ret_status Definition**
+
+- The following line defines a status indicator for the previous command's return value:
+
+```zsh
+local ret_status="%(?:%{$fg[green]%}>:%{$fg[red]%}>%s)"
+```
+
+- `%?` is the return status of the last executed command
+- `%(?:A:B)` is a conditional format:
+  - If the last command was successful (return code `0`), it displays `>` in green
+  - If the last command failed, it displays `>` in red
+
+---
+
+### **Customising the Prompt**
+
+- `PROMPT` defines the left-hand side (LHS) prompt:
+
+  ```zsh
+  PROMPT=$'\n%{$fg[yellow]%}%~ $(git_custom_prompt)\n%{$fg[yellow]%}▶ %{$reset_color%}'
+  RPROMPT=''
+  ```
+
+  - The first line (`%{$fg[yellow]%}%~`) shows the current working directory in yellow
+  - `$(git_custom_prompt)` appends the Git branch if in a Git repository
+  - The second line (`▶`) adds a prompt symbol in yellow
+  - `%{$reset_color%}` resets the text color
+
+- `RPROMPT` clears the right-hand side (RHS) prompt by setting it to an empty string
+
+---
+
+### **preexec Hook**
+
+```zsh
+preexec() {
+  echo ""
+}
+```
+
+- The `preexec` function runs **before every command**:
+  - In this case, it simply prints an empty line to visually separate command outputs
